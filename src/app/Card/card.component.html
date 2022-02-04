@@ -1,0 +1,15 @@
+<div class="container_card">
+    <h2>{{ title }}</h2>
+    <p class="container_card_text">{{ text }}</p>
+    <p class="container_card_text">Number: {{ number }}</p>
+    <p class="container_card_text"><img [src]="imgSrcUrl" /></p> 
+    <p class="container_card_text">
+        <button (click)="changeTitle()">
+            Change title
+        </button>
+        <button (click)="title = title + ' updated!'">
+            Update title
+        </button>
+        <input type="text" (input)="onChangeInput($event)">
+    </p> 
+</div>

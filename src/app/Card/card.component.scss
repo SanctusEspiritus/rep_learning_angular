@@ -1,0 +1,10 @@
+.container_card {
+    &_text {
+        border: 1px dashed #452351;
+        text-align: center;
+        padding: 20px;
+    }
+    img {
+        width: 200px;
+    }
+}
