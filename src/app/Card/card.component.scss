@@ -3,8 +3,15 @@
         border: 1px dashed #452351;
         text-align: center;
         padding: 20px;
+        &.blue {
+            color: blue;
+        }
+        &.red {
+            color: red;
+        }
     }
     img {
         width: 200px;
     }
+
 }

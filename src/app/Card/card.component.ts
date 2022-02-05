@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Card } from './../app.component';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     templateUrl: './card.component.html',
@@ -8,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class CardComponent implements OnInit{
     
-    title = 'Doom Slayer';
-    text = 'rip and tear';
-    number = 42;
+    constructor() {
+        this.card = {title: '', text:''}
+    }
+
+    @Input() card: Card;
+
+    title: string = 'Doom Slayer';
+    text: string = 'rip and tear';
+    textColor: string = '';
+    number: number = 42;
     array = [1, 1, 2, 4, 6, 9];
 
-    imgSrcUrl = 'https://www.freeiconspng.com/uploads/img-landscape-photo-photography-picture-icon-12.png';
+    imgSrcUrl: string = 'https://www.freeiconspng.com/uploads/img-landscape-photo-photography-picture-icon-12.png';
 
     ngOnInit(): void {
         setTimeout(() => {
@@ -27,5 +35,9 @@ export class CardComponent implements OnInit{
 
     onChangeInput(event:any) {
         this.title = event.target.value;
+    }
+    
+    changeText() {
+        this.text = 'We will send that'
     }
 }

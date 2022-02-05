@@ -1,5 +1,15 @@
 <div class="container">
   <h1>First try with Angular</h1>
-  <app-card></app-card>
+  <hr>
+    <button (click)="toggleCards()">Toggle cards</button>
+  <hr>
+  <div *ngIf="toggleCard; else noCards">
+    <app-card 
+      *ngFor="let iterCard of cards"
+      [card]="iterCard"></app-card>
+  </div>
+  <ng-template #noCards>
+    Cards was hidden!
+  </ng-template>
   <app-form></app-form>
 </div>

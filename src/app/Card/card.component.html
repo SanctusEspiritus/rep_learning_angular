@@ -1,15 +1,35 @@
 <div class="container_card">
-    <h2>{{ title }}</h2>
-    <p class="container_card_text">{{ text }}</p>
-    <p class="container_card_text">Number: {{ number }}</p>
-    <p class="container_card_text"><img [src]="imgSrcUrl" /></p> 
-    <p class="container_card_text">
-        <button (click)="changeTitle()">
-            Change title
-        </button>
-        <button (click)="title = title + ' updated!'">
-            Update title
-        </button>
-        <input type="text" (input)="onChangeInput($event)">
-    </p> 
+  <h2
+    [ngStyle]="{
+      color: card.title.length < 5 ? 'blue' : 'black'
+    }"
+  >
+    {{ card.title }}
+  </h2>
+  <p
+    class="container_card_text"
+    [ngClass]="{
+      blue: textColor === 'blue',
+      red: textColor === 'red'
+    }"
+  >
+    {{ card.text }}
+  </p>
+  <button (click)="textColor = 'red'">Set color red</button>
+  <button (click)="textColor = 'blue'">Set color blue</button>
+  <p
+    class="container_card_text"
+    [class.blue]="textColor === 'blue'"
+    [class.red]="textColor === 'red'"
+  >
+    {{ card.text }}
+  </p>
+  <p class="container_card_text">Number: {{ number }}</p>
+  <p class="container_card_text"><img [src]="imgSrcUrl" /></p>
+  <p class="container_card_text">
+    <button (click)="changeTitle()">Change title</button>
+    <button (click)="title = title + ' updated!'">Update title</button>
+    <input type="text" (input)="onChangeInput($event)" [value]="title" />
+    <input type="text" [(ngModel)]="title" (ngModelChange)="changeText()" />
+  </p>
 </div>
